@@ -1,0 +1,34 @@
+** sch_path: /home/vasil/CAD_VLSI/hpretl_50_2MOS_circuits/Single_MOS/lv_nmos.sch
+**.subckt lv_nmos
+XM1 D net1 GND GND sg13_lv_nmos w=1.0u l=0.45u ng=1 m=1
+Vgs net1 GND 3
+Vds net2 GND 1
+.save i(vds)
+Vd net2 D 0
+.save i(vd)
+**** begin user architecture code
+ .lib cornerMOSlv.lib mos_tt
+
+
+
+.temp 27
+.control
+save @n.xm1.nsg13_lv_nmos[gm]
+save @n.xm1.nsg13_lv_nmos[cgs]
+save @n.xm1.nsg13_lv_nmos[cgb]
+save @n.xm1.nsg13_lv_nmos[cgd]
+save @n.xm1.nsg13_lv_nmos[cdb]
+save @n.xm1.nsg13_lv_nmos[gds]
+op
+write dc_lv_nmos.raw
+set appendwrite
+dc Vds 0 1.5 0.01 Vgs 0 1.5 0.1
+write dc_lv_nmos.raw
+quit
+.endc
+
+
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.end
