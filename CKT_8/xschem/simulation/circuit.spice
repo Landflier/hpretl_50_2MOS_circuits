@@ -1,0 +1,39 @@
+** sch_path: /home/vasil/CAD_VLSI/hpretl_50_2MOS_circuits/CKT_8/xschem/circuit.sch
+**.subckt circuit
+XM1 net2 Vp net1 GND sg13_lv_nmos w=1.0u l=0.45u ng=1 m=1
+XM2 net3 Vn net1 GND sg13_lv_nmos w=1.0u l=0.45u ng=1 m=1
+XM3 net1 Vb GND GND sg13_lv_nmos w=1.0u l=0.45u ng=1 m=1
+Vp Vp GND 3
+.save i(vp)
+Vn Vn GND 3
+.save i(vn)
+Vb Vb GND 1
+.save i(vb)
+Vp1 net2 VDD 0
+.save i(vp1)
+Vn1 net3 VDD 0
+.save i(vn1)
+**** begin user architecture code
+ .lib cornerMOSlv.lib mos_tt
+
+
+
+.temp 27
+.option savecurrents
+.control
+  save @n.xm1.nsg13_lv_nmos[gm]
+  save @n.xm1.nsg13_lv_nmos[vth]
+
+  dc Vp 0 1.5 0.1 Vn 0 1.5 0.1
+  write dc_diff_pair.raw
+  set appendwrite
+  write dc_diff_pair.raw
+  quit
+.endc
+
+
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.GLOBAL VDD
+.end
