@@ -20,9 +20,6 @@ V {}
 S {}
 E {}
 L 7 2140 -730 2140 -60 {}
-T {NGSPICE} 100 -350 0 0 0.6 0.6 {}
-T {NGSPICE + XYCE} 380 -350 0 0 0.6 0.6 {}
-T {STANDARD CELLS} 740 -350 0 0 0.6 0.6 {}
 N 470 70 470 150 {lab=#net1}
 N 380 70 470 70 {lab=#net1}
 N 380 20 380 70 {lab=#net1}
@@ -30,12 +27,6 @@ N 290 70 380 70 {lab=#net1}
 N 290 70 290 150 {lab=#net1}
 N 470 180 470 230 {lab=GND}
 N 290 180 290 230 {lab=GND}
-C {devices/launcher.sym} 90 -410 0 0 {name=h1
-descr="IHP-Open-PDK"
-url="https://github.com/IHP-GmbH/IHP-Open-PDK/tree/main"}
-C {sg13g2_tests/IHP_testcases.sym} 160 -280 0 0 {name=x1}
-C {sg13g2_tests_xyce/IHP_testcases.sym} 520 -280 0 0 {name=x2}
-C {sg13g2_stdcells/IHP130_stdcells.sym} 870 -280 0 0 {name=x3}
 C {sg13g2_pr/sg13_lv_nmos.sym} 270 180 0 0 {name=M1
 l=0.45u
 w=1.0u

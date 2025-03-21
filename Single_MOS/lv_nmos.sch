@@ -5,15 +5,14 @@ V {}
 S {}
 E {}
 B 2 830 -570 1630 -170 {flags=graph
-y1=1.3e-10
-y2=0.00041
+y1=0
+y2=400u
 ypos1=0
 ypos2=2
 divy=5
 subdivy=4
 unity=1
-x1=0
-x2=1.5
+x1=-1.3877788e-17
 divx=5
 subdivx=4
 xlabmag=1.0
@@ -24,17 +23,18 @@ dataset=-1
 unitx=1
 logx=0
 logy=0
-rainbow=0}
-B 2 830 -970 1630 -570 {flags=graph
-y1=-1.9e-09
-y2=-7.9e-15
+rainbow=1
+x2=1.5}
+B 2 830 -990 1630 -590 {flags=graph
+y1=-1.4e-09
+y2=0.00049
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
-x2=10e-6
+x1=-1.3877788e-17
+x2=1.5
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -45,7 +45,71 @@ dataset=-1
 unitx=1
 logx=0
 logy=0
-}
+rainbow=1}
+B 2 1700 -570 2500 -170 {flags=graph
+y1=2.9e-09
+y2=0.00074
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=-1.3877788e-17
+x2=1.5
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+node=@n.xm1.nsg13_lv_nmos[gds]
+color=4
+dataset=-1
+unitx=1
+logx=0
+logy=0
+rainbow=1}
+B 2 1700 -990 2500 -590 {flags=graph
+y1=0
+y2=0.00074
+ypos1=0
+ypos2=2
+divy=5
+subdivy=4
+unity=1
+x1=-1.3877788e-17
+divx=5
+subdivx=4
+xlabmag=1.0
+ylabmag=1.0
+node="\\"i(vd) deriv()\\""
+color=4
+dataset=-1
+unitx=1
+logx=0
+logy=0
+rainbow=1
+x2=1.5}
+B 2 2570 -990 3370 -590 {flags=graph
+y1=-2.8e-06
+y2=79
+ypos1=0
+ypos2=2
+divy=5
+subdivy=4
+unity=1
+x1=-1.3877788e-17
+x2=1.5
+divx=5
+subdivx=4
+xlabmag=1.0
+ylabmag=1.0
+node="\\"@n.xm1.nsg13_lv_nmos[rout] @n.xm1.nsg13_lv_nmos[gm] *\\""
+color=4
+dataset=-1
+unitx=1
+logx=0
+logy=0
+rainbow=1
+sweep=Vgs}
 N 20 -200 20 -110 {lab=GND}
 N 80 -200 130 -200 {lab=#net1}
 N 300 -160 300 -110 {lab=GND}
@@ -79,15 +143,16 @@ value="
 .temp 27
 .control
 save @n.xm1.nsg13_lv_nmos[gm]
+save @n.xm1.nsg13_lv_nmos[gds]
+save @n.xm1.nsg13_lv_nmos[rout]
 save @n.xm1.nsg13_lv_nmos[cgs]
 save @n.xm1.nsg13_lv_nmos[cgb]
 save @n.xm1.nsg13_lv_nmos[cgd]
 save @n.xm1.nsg13_lv_nmos[cdb]
-save @n.xm1.nsg13_lv_nmos[gds]
 op
 write dc_lv_nmos.raw
 set appendwrite
-dc Vds 0 1.5 0.01 Vgs 0 1.5 0.1
+dc Vds 0 1.5 0.01 Vgs 0 1.5 0.2
 write dc_lv_nmos.raw
 quit
 .endc

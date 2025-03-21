@@ -29,10 +29,10 @@ rainbow=0
 legend=1
 rawfile=$netlist_dir/dc_diff_pair.raw
 sweep=Vp
+digital=0
 color="7 4"
 node="i(vn1)
-i(vp1)"
-digital=0}
+i(vp1)"}
 N 250 -290 280 -290 {lab=Vp}
 N 540 -290 570 -290 {lab=Vn}
 N 320 -260 320 -230 {lab=#net1}
@@ -149,7 +149,7 @@ C {devices/launcher.sym} 1070 -60 0 0 {name=h1
 descr="load waves" 
 tclcommand="xschem raw_read $netlist_dir/dc_diff_pair.raw dc"
 }
-C {devices/launcher.sym} 1080 -100 0 0 {name=h2
+C {devices/launcher.sym} 1070 -100 0 0 {name=h2
 descr="simulate" 
 tclcommand="xschem save; xschem netlist; xschem simulate"
 }

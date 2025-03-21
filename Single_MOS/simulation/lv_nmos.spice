@@ -14,15 +14,16 @@ Vd net2 D 0
 .temp 27
 .control
 save @n.xm1.nsg13_lv_nmos[gm]
+save @n.xm1.nsg13_lv_nmos[gds]
+save @n.xm1.nsg13_lv_nmos[rout]
 save @n.xm1.nsg13_lv_nmos[cgs]
 save @n.xm1.nsg13_lv_nmos[cgb]
 save @n.xm1.nsg13_lv_nmos[cgd]
 save @n.xm1.nsg13_lv_nmos[cdb]
-save @n.xm1.nsg13_lv_nmos[gds]
 op
 write dc_lv_nmos.raw
 set appendwrite
-dc Vds 0 1.5 0.01 Vgs 0 1.5 0.1
+dc Vds 0 1.5 0.01 Vgs 0 1.5 0.2
 write dc_lv_nmos.raw
 quit
 .endc
