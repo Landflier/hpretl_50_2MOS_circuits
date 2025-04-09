@@ -1,0 +1,47 @@
+** CIRCUIT_14 flat netlist
+*.IOPIN V_IN
+*.IOPIN V_OUT
+*--------BEGIN_XM1->SG13_LV_PMOS
+XM1 V_IN CLK_B V_OUT VDD  SG13_LV_PMOS W=1.0U L=0.45U NG=1 M=1
+*--------END___XM1->SG13_LV_PMOS
+*--------BEGIN_XM2->SG13_LV_NMOS
+XM2 V_IN CLK V_OUT VSS  SG13_LV_NMOS W=1.0U L=0.45U NG=1 M=1
+*--------END___XM2->SG13_LV_NMOS
+V1 CLK GND PULSE (0 1.5 0.5N 100P 100P 1N 2.2N)
+.SAVE I(V1)
+V2 VDD GND 1.5
+.SAVE I(V2)
+V3 VSS GND 0
+.SAVE I(V3)
+VIN V_IN GND 0.8
+.SAVE I(VIN)
+*--------BEGIN_X1->SG13G2_INV_1
+X1 CLK VDD VSS CLK_B  SG13G2_INV_1
+*--------END___X1->SG13G2_INV_1
+**** BEGIN USER ARCHITECTURE CODE
+
+.lib cornerMOSlv.lib mos_tt
+.lib cornerMOShv.lib mos_tt
+.lib cornerRES.lib res_typ
+.include /home/vasil/CAD_VLSI/IHP-Open-PDK/ihp-sg13g2/libs.ref/sg13g2_stdcell/spice/sg13g2_stdcell.spice
+
+
+
+.TEMP 27
+.PARAM VIN=0
+.control
+dc vin 0 1.5 0.01
+write circuit_14_dc.raw
+
+tran 1p 10n
+write circuit_14_tran.raw
+.endc
+
+
+
+
+.SAVE ALL
+
+
+**** END USER ARCHITECTURE CODE
+.end
